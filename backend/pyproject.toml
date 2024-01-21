@@ -12,6 +12,10 @@ dependencies = [
     "greenlet>=3.0.3",
     "twisted>=23.10.0",
     "pytest-asyncio>=0.23.3",
+    "quart-auth>=0.9.0",
+    "bcrypt>=4.1.2",
+    "zxcvbn>=4.4.28",
+    "itsdangerous>=2.1.2",
 ]
 requires-python = "==3.11.*"
 readme = "README.md"
@@ -23,3 +27,7 @@ distribution = false
 [tool.pdm.scripts]
 start = {cmd = "quart --app run.py run --port 5050", env_file = "development.env"}
 test = {composite = ["pytest tests/"], env_file = "testing.env"}
+[tool.pdm.dev-dependencies]
+dev = [
+    "freezegun>=1.4.0",
+]
