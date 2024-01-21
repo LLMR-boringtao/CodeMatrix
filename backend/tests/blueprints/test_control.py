@@ -1,8 +1,8 @@
-import pytest
+from pytest import mark
 from quart import Quart
 from typing import AsyncGenerator
 
-@pytest.mark.asyncio
+@mark.asyncio
 async def test_control(app: AsyncGenerator[Quart, None]):
     async for a in app:
         async with a.test_client() as test_client:

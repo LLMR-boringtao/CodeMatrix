@@ -1,7 +1,11 @@
+import sys
+from pathlib import Path
+sys.path.append(str(Path(__file__).resolve().parent.parent))
+
 from typing import AsyncGenerator
 import pytest
 from quart import Quart
-from src.backend.run import app
+from backend.run import app
 
 
 @pytest.fixture(name="app", scope="function")

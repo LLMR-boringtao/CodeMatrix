@@ -1,9 +1,9 @@
 [project]
 name = "Backend"
 version = "0.1.0"
-description = "PDM package"
+description = "CodeMatrix Backend"
 authors = [
-    {name = "LLMR_Boringtao", email = "138439682+LLMR-boringtao@users.noreply.github.com"},
+    {name = "LLMR_Boringtao", email = "LLMR-boringtao@users.noreply.github.com"},
 ]
 dependencies = [
     "quart>=0.19.4",
@@ -21,5 +21,5 @@ license = {text = "MIT"}
 distribution = false
 
 [tool.pdm.scripts]
-start = {cmd = "quart --app src/backend/run.py run --port 5050", env_file = "development.env"}
+start = {cmd = "quart --app run.py run --port 5050", env_file = "development.env"}
 test = {composite = ["pytest tests/"], env_file = "testing.env"}
