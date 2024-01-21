@@ -1,0 +1,19 @@
+[project]
+name = "Backend"
+version = "0.1.0"
+description = "PDM package"
+authors = [
+    {name = "LLMR_Boringtao", email = "138439682+LLMR-boringtao@users.noreply.github.com"},
+]
+dependencies = [
+    "quart>=0.19.4",
+]
+requires-python = "==3.11.*"
+readme = "README.md"
+license = {text = "MIT"}
+
+[tool.pdm]
+distribution = false
+
+[tool.pdm.scripts]
+start = {cmd = "quart --app src/backend/run.py run --port   5050"}
