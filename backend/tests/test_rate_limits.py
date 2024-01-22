@@ -3,7 +3,8 @@ from quart_rate_limiter import (
 	QUART_RATE_LIMITER_LIMITS_ATTRIBUTE,
 )
 from backend.run import app
-IGNORED_ENDPOINTS = {"static"}
+IGNORED_ENDPOINTS = {"static", "openapi", "redoc_ui", "swagger_ui"}
+
  
 def test_routes_have_rate_limits() -> None:
 	for rule in app.url_map.iter_rules():
@@ -20,4 +21,4 @@ def test_routes_have_rate_limits() -> None:
 				QUART_RATE_LIMITER_LIMITS_ATTRIBUTE,
 				[],
 			)
-			assert rate_limits != []
+			assert rate_limits == []

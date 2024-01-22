@@ -19,6 +19,7 @@ dependencies = [
     "quart-rate-limiter>=0.9.0",
     "pydantic[email]>=2.5.3",
     "quart-schema>=0.18.0",
+    "quart-db>=0.7.1",
 ]
 requires-python = "==3.11.*"
 readme = "README.md"
@@ -30,6 +31,9 @@ distribution = false
 [tool.pdm.scripts]
 start = {cmd = "quart --app run.py run --port 5050", env_file = "development.env"}
 test = {composite = ["pytest tests/"], env_file = "testing.env"}
+recreate-db = {cmd = "quart --app run.py run recreate_db", env_file = "development.env"}
+recreate-db-test = {composite = ["quart --app run.py run recreate_db", "pytest tests/"], env_file = "testing.env"}
+
 [tool.pdm.dev-dependencies]
 dev = [
     "freezegun>=1.4.0",
